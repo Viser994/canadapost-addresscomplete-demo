@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Canada Post AddressComplete Demo</title>
+
+    <!-- AddressComplete CSS & JS (replace YOUR-ADDRESSCOMPLETE-KEY with your real key) -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://ws1.postescanada-canadapost.ca/css/addresscomplete-2.30.min.css?key=YOUR-ADDRESSCOMPLETE-KEY"
+    />
+    <script
+      type="text/javascript"
+      src="https://ws1.postescanada-canadapost.ca/js/addresscomplete-2.30.js?key=YOUR-ADDRESSCOMPLETE-KEY&app=demo&culture=en"
+    ></script>
+
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: #f4f6fb;
+        margin: 0;
+        padding: 0;
+      }
+
+      .page {
+        max-width: 640px;
+        margin: 40px auto;
+        padding: 24px 28px 32px;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+      }
+
+      h1 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-size: 1.6rem;
+        color: #111827;
+      }
+
+      p.subtitle {
+        margin-top: 0;
+        margin-bottom: 24px;
+        color: #6b7280;
+        font-size: 0.95rem;
+      }
+
+      .input-line {
+        margin-bottom: 14px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: #4b5563;
+        margin-bottom: 4px;
+      }
+
+      input[type="text"] {
+        padding: 9px 11px;
+        border-radius: 8px;
+        border: 1px solid #d1d5db;
+        font-size: 0.95rem;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease,
+          background-color 0.15s ease;
+        background-color: #f9fafb;
+      }
+
+      input[type="text"]:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 1px #2563eb22;
+        background-color: #ffffff;
+      }
+
+      #search {
+        border-radius: 999px;
+        padding-left: 14px;
+        background-color: #ffffff;
+      }
+
+      .hint {
+        font-size: 0.8rem;
+        color: #9ca3af;
+        margin-top: 4px;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 3px 8px;
+        border-radius: 999px;
+        background-color: #eff6ff;
+        color: #1d4ed8;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 10px;
+      }
+
+      .footer-note {
+        margin-top: 18px;
+        font-size: 0.78rem;
+        color: #9ca3af;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <div class="badge">Demo</div>
+      <h1>AddressComplete Autocomplete</h1>
+      <p class="subtitle">
+        Start typing an address below. Suggestions come from the Canada Post
+        AddressComplete service and will populate the form fields.
+      </p>
+
+      <div class="input-line">
+        <label for="search">Lookup</label>
+        <input
+          id="search"
+          type="text"
+          placeholder="Begin typing a street, postal code, or city..."
+          autocomplete="off"
+        />
+        <div class="hint">Suggestions will appear in a dropdown list.</div>
+      </div>
+
+      <div class="input-line">
+        <label for="street-address">Address line 1</label>
+        <input
+          id="street-address"
+          type="text"
+          placeholder="Street address"
+          autocomplete="address-line1"
+        />
+      </div>
+
+      <div class="input-line">
+        <label for="street-address2">Address line 2</label>
+        <input
+          id="street-address2"
+          type="text"
+          placeholder="Apartment, suite, etc. (optional)"
+          autocomplete="address-line2"
+        />
+      </div>
+
+      <div class="two-col">
+        <div class="input-line">
+          <label for="city">City</label>
+          <input id="city" type="text" placeholder="City" autocomplete="address-level2" />
+        </div>
+
+        <div class="input-line">
+          <label for="state">Province / State</label>
+          <input
+            id="state"
+            type="text"
+            placeholder="Province / State"
+            autocomplete="address-level1"
+          />
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="input-line">
+          <label for="postcode">Postal code</label>
+          <input
+            id="postcode"
+            type="text"
+            placeholder="A1A 1A1"
+            autocomplete="postal-code"
+          />
+        </div>
+
+        <div class="input-line">
+          <label for="country">Country</label>
+          <input
+            id="country"
+            type="text"
+            placeholder="Canada"
+            autocomplete="country-name"
+          />
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="input-line">
+          <label for="multi-unit">Multi‑unit indicator</label>
+          <input
+            id="multi-unit"
+            type="text"
+            placeholder="e.g. Multi-unit building"
+          />
+        </div>
+
+        <div class="input-line">
+          <label for="residential-business">Residential / Business</label>
+          <input
+            id="residential-business"
+            type="text"
+            placeholder="Residential or Business"
+          />
+        </div>
+      </div>
+
+      <div class="footer-note">
+        This is a client-side demo. Make sure your AddressComplete installation
+        allows this page&apos;s URL in the Canada Post dashboard.
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      // Initialize AddressComplete once the library has loaded
+      (function () {
+        if (!window.pca) {
+          console.warn(
+            "AddressComplete script did not load. Check your API key and allowed URLs."
+          );
+          return;
+        }
+
+        var fields = [
+          { element: "search", field: "", mode: pca.fieldMode.SEARCH },
+
+          { element: "street-address", field: "Line1", mode: pca.fieldMode.POPULATE },
+          { element: "street-address2", field: "Line2", mode: pca.fieldMode.POPULATE },
+          { element: "city", field: "City", mode: pca.fieldMode.POPULATE },
+          { element: "state", field: "ProvinceName", mode: pca.fieldMode.POPULATE },
+          { element: "postcode", field: "PostalCode" },
+          { element: "country", field: "CountryName", mode: pca.fieldMode.COUNTRY },
+
+          { element: "multi-unit", field: "{AcMua}", mode: pca.fieldMode.POPULATE },
+          {
+            element: "residential-business",
+            field: "{AcRbdi}",
+            mode: pca.fieldMode.POPULATE,
+          },
+        ];
+
+        var options = {
+          // Replace this with your real key as well
+          key: "YOUR-ADDRESSCOMPLETE-KEY",
+        };
+
+        new pca.Address(fields, options);
+      })();
+    </script>
+  </body>
+</html>
+
